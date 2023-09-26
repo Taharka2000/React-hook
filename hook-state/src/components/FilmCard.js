@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const FilmCard = ({titre,description,poste,raking}) => {
+const FilmCard = ({titre,description,poste,note}) => {
   
   return (
     <div class="relative flex w-[80%] ml-[70px] p-2 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
@@ -17,7 +17,7 @@ const FilmCard = ({titre,description,poste,raking}) => {
         Title:{titre}
       </h1>
       <p class="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-       Raking:{raking}
+      Note:{note}
       </p>
     </div>
     <p class="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">

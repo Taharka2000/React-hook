@@ -6,9 +6,11 @@ import Film from './AddFilm';
 const ListeDeFilms = () => {
     const [item, setItems] = useState(Movie);
     const [nouveauFilm, setNouveauFilm] = useState(Film);
+    {/*partie pour l'ajout des film*/}
     const handleAddFilm = (e) => {
         e.preventDefault();
         setItems([...item, { ...nouveauFilm }]);
+
         setNouveauFilm({ titre: "", note: "", poste: "" });
     }
     const handleInputChange = (e) => {
@@ -17,20 +19,19 @@ const ListeDeFilms = () => {
     }
     const name = (e) => {
         const search = e.target.value.toLowerCase();
-        const filtered = Movie.filter((film) => {
+        const filtered1 = Movie.filter((film) => {
             const filteredname = film.titre.toLocaleLowerCase().includes(search);
-            const filterednote = film.raking.toString().toLowerCase().includes(search)
+            const filterednote = film.note.toString().toLowerCase().includes(search)
             return filteredname || filterednote
         })
-        setItems(filtered)
+        setItems(filtered1)
     }
-
     return (
         <>
             <div>
                 <div class="mb-3 w-[50%] flex flex-row justify-center">
-                <div class="mb-6">
-                        <input type="search"  placeholder="Search" onChange={function (e) { name(e) }} id="large-input" class="block w-auto p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                    <div class="mb-6">
+                        <input type="search" placeholder="Search" onChange={function (e) { name(e) }} id="large-input" class="block w-auto p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                         <span for="large-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Search by Title or Rating</span>
                     </div>
                 </div>
@@ -64,8 +65,4 @@ const ListeDeFilms = () => {
         </>
     );
 };
-
-
-
-
 export default ListeDeFilms;
